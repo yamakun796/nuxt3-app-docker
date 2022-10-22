@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  app_dev:
+    image: nuxt3-app-docker-build-dev
+    build: 
+      dockerfile: Dockerfile
+    ports:
+      - 8000:8000

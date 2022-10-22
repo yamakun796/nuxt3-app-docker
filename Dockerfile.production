@@ -1,0 +1,15 @@
+FROM node:lts-slim
+RUN npm isntall -g pnpm
+
+ENV HOST=0.0.0.0
+ENV PORT=5000
+
+WORKDIR /app
+COPY package.json pnpm-lock.yaml .npmrc ./
+RUN pnpm install && pnpm store prune
+RUN pnpm run build
+
+COPY . .
+
+EXPOSE 5000
+CMD ["node",".output/server/index.mjs"]
