@@ -1,2 +1,11 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
-export default defineNuxtConfig({});
+import eslintPlugin from "vite-plugin-eslint";
+export default defineNuxtConfig({
+  typescript: {
+    shim: false,
+    typeCheck: true,
+  },
+  vite: {
+    plugins: [eslintPlugin()],
+  },
+});
